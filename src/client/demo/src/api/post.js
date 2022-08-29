@@ -1,18 +1,13 @@
 import axios from 'axios';
 
 const postRequest = async (data) => {
-    const url = "http://localhost:5000/predict";
-    const config = { 
-        headers: {  
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }
-    }
+    const url = "http://localhost:5000/predict-pretty";
 
     try {
-        const response = await axios.post(url, JSON.stringify(data), config);
+        const response = await axios.post(url, data);
         if (response.status === 200) {
             console.log('success stuff');
+            console.log(response);
             return response.data;
         }
     } catch (error) {
